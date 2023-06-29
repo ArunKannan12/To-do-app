@@ -1,0 +1,30 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.delete-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 200px;
+    height: 200px;
+    text-align: center;
+    font-size: 20px;
+    width: 500px;
+    /* border: solid balck 1px; */
+    background-color: rgba(128, 128, 128, 0.068);
+}
+.cancel{
+text-decoration: none;
+margin: 50px;
+width: 30px;
+background-color: white;
+border-radius: 10px;
+padding: 5px;
+
+}
+.btn{
+    padding-left: 20px;
+    padding-right: 20px;
+}

@@ -1,0 +1,51 @@
+
+
+
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+{% endblock title %}
+
+{% block content %}
+<style>
+  
+
+.delete-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 200px;
+  height: 200px;
+  text-align: center;
+  font-size: 25px;
+  width: 500px;
+  /* border: solid balck 1px; */
+  background-color: white;
+}
+.cancel{
+text-decoration: none;
+margin: 50px;
+width: 30px;
+background-color: white;
+border-radius: 10px;
+padding: 5px;
+
+}
+.btn{
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+</style>
+{% comment %} <link rel="stylesheet" href="{% static 'css\delete.css' %}"> {% endcomment %}
+<div class="delete-container">
+  <form action="" novalidate autocomplete="off" method="post">
+    {% csrf_token %}
+    <p>Are you sure you want to delete? "<b style='color:blue;'>{{task}}</b>" </p>
+    <button class="btn btn-danger" type="submit">ok</button>
+    {% comment %} <button type="submit" style="border:none"> {% endcomment %}
+      <a href="{% url 'tasklist' %}" class='cancel anchor' >cancel</a>
+    {% comment %} </button> {% endcomment %}
+  </form>
+</div>
+{% endblock content %}

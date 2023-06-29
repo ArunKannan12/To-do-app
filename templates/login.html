@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="header-bar">
+        <h1>Login</h1>
+</div>
+<div class="card-body">
+        <form action="" method="post" novalidate autocomplete="off">
+                {% csrf_token %}
+                {{form.as_p}}
+                <input class="button button1 " type="submit" value="Login">
+        </form>
+        <p>Don't have an account? <a style="font-size:30px;color:#dc3545;text-decoration:none;" class="anchor" href="{% url 'register' %}">Register</a></p>
+</div>
+
+
+
+{% endblock content %}
