@@ -18,8 +18,8 @@ class CustomUserForm(UserCreationForm):
 
 class TaskForm(forms.ModelForm):
     
-    title=forms.CharField(widget=forms.TextInput(attrs={'placeholder':'enter user name','style':'height:30px;'}))
-    description=forms.CharField(widget=forms.Textarea(attrs={'placeholder':'enter description'}))
+    title=forms.CharField(widget=forms.TextInput(attrs={'placeholder':'Enter the title','style':'height:30px;'}))
+    description=forms.CharField(widget=forms.Textarea(attrs={'placeholder':'Enter description'}))
     class Meta:
         model = Task
         fields = ['title','description','complete']

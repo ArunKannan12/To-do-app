@@ -2,7 +2,7 @@
 {% load static %} 
 {% block title %} {% endblock title%}
  {% block content %}
-
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link
   href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
   rel="stylesheet"
@@ -12,7 +12,7 @@
 {% include 'messages.html' %} 
 <div class="header-bar">
   <div>
-    <h1>hello {{request.user|title}}</h1>
+    <h1>Hello, {{request.user|title}}</h1>
     <h3 style="margin:0">You have <i>{{id}}</i> incompleted task{{id|pluralize:"s"}} </h3>
   </div>
 
@@ -27,10 +27,10 @@
  </div>
  <div id="search-add-wrapper">
  <form action="" method="GET" style="margin-top:20px;display:flex;" novalidate autocomplete="off">
-  <input type="text" name="search-area" id="" value='{{search_input}}' >
+  <input type="search" name="search-area" id="search_here" value='{{search_input}}' >
   <input class="button" type="submit" value="search">
 </form>
-<a id="add-link" href="{% url 'taskcreate' %}">&#x2b</a>
+<a id="add-link" title="Add task to the list" href="{% url 'taskcreate' %}">&#x2b</a>
  </div>
 <div class="task-items-wrapper">
   {% for i in task %}
@@ -38,21 +38,25 @@
     {% if i.complete %}
       <div class="task-title">
         <div class="task-complete-icon"></div>
-        <i><s><a href="{% url 'taskedit' i.id %}">{{i.title}}</a></s></i>
+        <i><s><a title="View this task" href="{% url 'taskdetail' i.id %}">{{i.title|capfirst}}</a></s></i>
       </div>
     {% else %}
     <div class="task-title" >
       <div class="task-incomplete-icon"></div>
-      <a  href="{% url 'taskedit' i.id %}">{{i.title}}</a>
+      <a title="View this task" href="{% url 'taskdetail' i.id %}">{{i.title|capfirst}}</a>
     </div>
     {% endif %}
-    <a class="delete-link"  href="{% url 'taskdelete' i.id %}">&#215</a>
+    <div style="display:flex;justify-content:end;">
+      <a style="margin:20px" title="Edit this task" class="delete-link"  href="{% url 'taskedit' i.id %}"><i class="fa fa-light fa-pen-to-square" style="color: #15fa05;"></i></a>
+    <a style="margin:25px;font-size:25px" title="Delete this task" class="delete-link"  href="{% url 'taskdelete' i.id %}">&#215</a>
+    </div>
+    
   </div>
   {%empty%}
   <h3>No items in list</h3>
   {% endfor %}
 </div>
-
+<script src="{% static 'js\base.js' %}" type="javascript"></script>
 
 <script
   src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"

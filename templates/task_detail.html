@@ -8,7 +8,48 @@
 {% block content %}
 
 {% include 'messages.html' %}
-    task name {{task}}
-
+<style>
+    #back-button{
+        margin-top:20px;
+        border:1px solid #eb796f;
+        background-color:#fafafa;
+        color:#eb796f;
+        padding:10px;
+        font-size:14px;
+        border-radius:5px;
+        cursor:pointer;
+        text-decoration:none;
+        
+    }
+    #back-anchor{
+        text-decoration:none;
+        color:#eb796f;
+    }
+    #back-button:hover{
+        background-color:#dc3545;
+        color:white;
+    }
+    
+</style>
+  <div class="header-bar">
+    <div>
+        <h1>Detail view</h1>
+        
+    </div>
+    
+  </div>
+  <div>
+    
+    <a id="back-anchor" href="{% url 'tasklist' %}"><button id="back-button" >home</button></a>
+    <br>
+    <br>
+    <div>
+        Task name: <b style='text-transform:capitalize;'>{{task.title}}</b>
+    </div>
+    <br>
+    <div>
+       <b> Description:</b> <span>{{task.description}}</span>
+    </div>
+  </div>
 {% endblock content %}
 

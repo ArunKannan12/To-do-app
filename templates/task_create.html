@@ -12,14 +12,14 @@
     <form action="" novalidate autocomplete="off" method="post">
         {% csrf_token %}
          <div class="mb-1">
-            <label for="" class="form-label">title</label>
+            <label for="" class="form-label">Title</label>
             <div>{{form.title}}</div>
             {% if form.errors.title %}
             <label for="" class="text-danger"> {{form.errors.title}} </label>
             {% endif %}
         </div>
         <div class="mb-1">
-            <label for="" class="form-label">description</label>
+            <label for="" class="form-label">Description</label>
             <div>{{form.description}}</div>
             {% if form.errors.description %}
             <label for="" class="text-danger"> {{form.errors.description}} </label>
